@@ -110,7 +110,7 @@ def get_bulletin_from_web():
 
 def get_current_git_branch() -> str:
     try:
-        repo = Repo(search_parent_directories=True)
+        repo = Repo(os.path.abspath(__file__), search_parent_directories=True)
         branch = repo.active_branch
         return branch.name
     except:
